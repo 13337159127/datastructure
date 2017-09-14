@@ -22,7 +22,9 @@ public class Stack {
 	 *            数组的长度
 	 */
 	public void numberArrayLength(int max) {
+		// 为成员变量赋值
 		this.stackLength = max;
+		// 数组的容量
 		numberArray = new int[max];
 	}
 
@@ -32,7 +34,7 @@ public class Stack {
 	 * @param number
 	 */
 	public void push(int number) {
-		// 如果栈满了，则不入栈，直接返回
+		// 如果数组满了，则不入栈，直接返回
 		if (isFullStack()) {
 			return;
 		}
@@ -66,7 +68,7 @@ public class Stack {
 	 * @return
 	 */
 	public boolean isFullStack() {
-		// 如果栈顶等于栈的最大容量，返回true
+		// //如果栈顶等于数组最大容量，则返回true
 		return top == (stackLength - 1);
 	}
 
