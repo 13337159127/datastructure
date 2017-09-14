@@ -32,6 +32,7 @@ public class Stack {
 	 * @param number
 	 */
 	public void push(int number) {
+		// 如果栈满了，则不入栈，直接返回
 		if (isFullStack()) {
 			return;
 		}
@@ -99,7 +100,7 @@ public class Stack {
 		// 出栈
 		// 如果返回的栈顶不等于-1，说明不是空栈。可以进行出栈操作
 		while (!stack.isEmpty()) {
-			System.out.println("出栈" + stack.pop());
+			System.out.println("出栈:" + stack.pop());
 		}
 	}
 }

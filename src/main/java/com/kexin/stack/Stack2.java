@@ -8,8 +8,8 @@ public class Stack2 {
 	// 定义一个栈
 	private String[] nameArray;
 
-	// 定义一个栈顶的值
-	private int top;
+	// 定义一个栈顶的值,等于-1为空栈
+	private int top = -1;
 
 	/**
 	 * 定义栈的长度
@@ -17,10 +17,9 @@ public class Stack2 {
 	 * @param max
 	 *            栈的长度
 	 */
-	public void nameArrayLength(int length) {
-		// 定义栈的长度
-		nameArray = new String[length];
-		top = -1;
+	public void nameArrayLength(int max) {
+		this.length = max;
+		nameArray = new String[max];
 	}
 
 	/**
@@ -30,6 +29,9 @@ public class Stack2 {
 	 *            元素
 	 */
 	public void push(String name) {
+		if (isFullStack()) {
+			return;
+		}
 		nameArray[++top] = name;
 	}
 
@@ -52,6 +54,15 @@ public class Stack2 {
 	}
 
 	/**
+	 * 判断栈满
+	 * 
+	 * @return
+	 */
+	public boolean isFullStack() {
+		return top == (length - 1);
+	}
+
+	/**
 	 * 判断栈是否为空 如果栈顶等于-1，证明是空栈，返回true 如果栈顶不等于-1，证明不是空栈，返回false
 	 * 
 	 * @return
@@ -67,7 +78,7 @@ public class Stack2 {
 	 */
 	public static void main(String[] args) {
 		Stack2 stack = new Stack2();
-		stack.nameArrayLength(10);
+		stack.nameArrayLength(4);
 		stack.push("赵");
 		stack.push("钱");
 		stack.push("孙");
