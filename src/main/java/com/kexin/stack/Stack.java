@@ -33,13 +33,14 @@ public class Stack {
 	 * 
 	 * @param number
 	 */
-	public void push(int number) {
+	public int push(int number) {
 		// 如果数组满了，则不入栈，直接返回
 		if (isFullStack()) {
-			return;
+			return top + 1;
 		}
 		// 栈顶加1，把元素入栈
 		numberArray[++top] = number;
+		return top;
 	}
 
 	/**
@@ -91,16 +92,22 @@ public class Stack {
 	 */
 	public static void main(String[] args) throws Exception {
 		Stack stack = new Stack();
-		stack.numberArrayLength(3);
+		int numberLength = 3;
+		stack.numberArrayLength(numberLength);
 		// 入栈
-		stack.push(1);
-		stack.push(2);
-		stack.push(3);
-		stack.push(4);
+		for (int i = 1; i < 5; i++) {
+			int returnTab = stack.push(i);
+			// 如果返回数组下标的值等于数组最大长度，则为满栈。
+			if (returnTab < numberLength) {
+				System.out.println(i + ":入栈了");
+			} else {
+				System.out.println(i + ":出栈了，栈满了");
+			}
+		}
 		// 查看栈
 		System.out.println("查看栈：" + stack.peek());
 		// 出栈
-		// 如果返回的栈顶不等于-1，说明不是空栈。可以进行出栈操作
+		// !比较的结果是一个布尔值（ true 或 false ）,取反
 		while (!stack.isEmpty()) {
 			System.out.println("出栈:" + stack.pop());
 		}
