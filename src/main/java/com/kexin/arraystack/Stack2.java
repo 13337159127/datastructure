@@ -1,4 +1,4 @@
-package com.kexin.stack;
+package com.kexin.arraystack;
 
 public class Stack2 {
 

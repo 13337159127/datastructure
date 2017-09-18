@@ -1,4 +1,4 @@
-package com.kexin.stack;
+package com.kexin.arraystack;
 
 /**
  * 数组实现栈
