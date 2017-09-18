@@ -101,7 +101,7 @@ public class Stack {
 			if (returnTab < numberLength) {
 				System.out.println(i + ":入栈了");
 			} else {
-				System.out.println(i + ":出栈了，栈满了");
+				System.out.println(i + ":入栈失败，栈满了");
 			}
 		}
 		// 查看栈
