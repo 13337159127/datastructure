@@ -32,6 +32,7 @@ public class Stack2 {
 		if (isFullStack()) {
 			return;
 		}
+		//先加1，再赋值
 		nameArray[++top] = name;
 	}
 
