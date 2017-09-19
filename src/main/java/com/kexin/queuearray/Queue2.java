@@ -31,14 +31,14 @@ public class Queue2 {
 	 * 
 	 * @param number
 	 */
-	public int insert(int number) {
+	public String insert(int number) {
 		// 如果队列为满，直接返回
 		if (isFull()) {
-			return rear + 1;
+			return "isFull";
 		}
 		// 元素从队尾入队
 		numberArray[++rear] = number;
-		return rear;
+		return "success";
 	}
 
 	/**
@@ -100,13 +100,15 @@ public class Queue2 {
 		int size = 3;
 		queue.numberArrayLength(size);
 		// 入队
-		for (int i = 1; i < 4; i++) {
-			int returnTab = queue.insert(i);
+		for (int i = 1; i < 5; i++) {
+			String returnTab = queue.insert(i);
 			// 如果返回 的数组下标小于数组长度，则入队成功，如果等于或大于数组的长度，入队失败
-			if (returnTab < size) {
+			if (returnTab == "success") {
 				System.out.println(i + ":入队成功");
-			} else {
+			} else if (returnTab == "isFull") {
 				System.out.println(i + ":入队失败，队满了");
+			} else {
+				System.out.println("其它情况");
 			}
 		}
 		System.out.println("队头元素为：" + queue.frontNumber());

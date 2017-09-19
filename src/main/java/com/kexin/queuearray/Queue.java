@@ -2,6 +2,7 @@ package com.kexin.queuearray;
 
 /**
  * 数组实现队列
+ * 
  * @author lenovo
  *
  */
@@ -53,14 +54,15 @@ public class Queue {
 	 * 
 	 * @param number
 	 */
-	public int insert(int number) {
-		// 如果为空，直接返回
+	public String insert(int number) {
+		// 如果为满，返回isFull
 		if (isFull()) {
-			return rear + 1;
+			return "isFull";
 		}
-		// 如果不为空，向队尾添加元素
+		// 如果不为满，向队尾添加元素
 		numberArray[++rear] = number;
-		return rear;
+		return "success";
+
 	}
 
 	/**
@@ -102,12 +104,14 @@ public class Queue {
 		queue.numberArrayLength(numberLength);
 		// 向队列添加元素
 		for (int i = 1; i < 5; i++) {
-			int returnTab = queue.insert(i);
-			// 如果返回数组下标小于数组的最大长度，入队成功
-			if (returnTab < numberLength) {
+			String returnTab = queue.insert(i);
+			// 如果返回success，入队成功。返回isFull，入队失败。
+			if (returnTab == "success") {
 				System.out.println(i + ":入队成功");
-			} else {
+			} else if (returnTab == "isFull") {
 				System.out.println(i + ":队列满了，入队失败");
+			} else {
+				System.out.println("其它情况");
 			}
 		}
 		System.out.println("队头元素：" + queue.peekFront());
