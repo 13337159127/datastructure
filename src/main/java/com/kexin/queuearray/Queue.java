@@ -1,5 +1,10 @@
 package com.kexin.queuearray;
 
+/**
+ * 数组实现队列
+ * @author lenovo
+ *
+ */
 public class Queue {
 
 	// 定义数组
